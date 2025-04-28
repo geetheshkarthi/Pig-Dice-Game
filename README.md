@@ -64,16 +64,6 @@ Implemented in Jack, the game demonstrates:
 
 ---
 
-## 👥 Authors
-- B. Geethesh Karthikeyan (CB.SC.U4AIE23116)
-- B. Sai Charan (CB.SC.U4AIE23117)
-- B. Viswesh (CB.SC.U4AIE23118)
-- D. Venkata Kiran Kumar (CB.SC.U4AIE23122)
-
-Guided by: **Ms. Sreelakshmi K**, Assistant Professor, Centre for Computational Engineering and Networking (CEN), Amrita School of Artificial Intelligence.
-
----
-
 ## 📚 References
 - [Nand2Tetris Course](https://www.nand2tetris.org/)
 - [Jack Language Guide](https://www.nand2tetris.org/project-based-course)
