@@ -1,0 +1,106 @@
+class Main {
+    function void main() {
+        var Random random;
+        var Player player1; // controlled by player 1
+        var Player player2; // controlled by player 2
+        var int player1Score; // player 1's score, updated every turn
+        var int player2Score; // player 2's score, updated every turn
+        var char command; // store the command player enters
+        var boolean player1Turn; // flag to keep track of whose turn it is
+        var boolean gameOver; // flag to track if the game has ended
+
+        // Initialization
+        let random = Random.new(123); // give a seed
+        let player1 = Player.new();
+        let player2 = Player.new();
+        let player1Score = player1.getScore();
+        let player2Score = player2.getScore();
+        let player1Turn = true; // player 1 starts
+        let gameOver = false; // game is not over initially
+
+        do Output.printString("Dice game start!");
+        do Output.println();
+
+        while (~gameOver) {
+            // Display scores
+            do Output.printString("Player 1 score: ");
+            do Output.printInt(player1Score);
+            do Output.printString(" Player 2 score: ");
+            do Output.printInt(player2Score);
+            do Output.println();
+
+            // Display instructions
+            if (player1Turn) {
+                do Output.printString("Player 1's turn. Hold or roll? 'h' for hold and 'r' for roll: ");
+            } else {
+                do Output.printString("Player 2's turn. Hold or roll? 'h' for hold and 'r' for roll: ");
+            }
+            let command = Keyboard.readChar();
+            do Output.moveCursor(0, 0);
+            do Screen.clearScreen();
+
+            // Roll
+            if (command = 82) { // 'r' for roll
+                if (player1Turn) {
+                    do Output.printString("Player 1 rolls: ");
+                    do Output.printInt(player1.roll());
+                    do Output.println();
+                    let player1Score = player1.getScore();
+                    do Output.printString("Player 1's score is now: ");
+                    do Output.printInt(player1Score);
+                    do Output.println();
+                } else {
+                    do Output.printString("Player 2 rolls: ");
+                    do Output.printInt(player2.roll());
+                    do Output.println();
+                    let player2Score = player2.getScore();
+                    do Output.printString("Player 2's score is now: ");
+                    do Output.printInt(player2Score);
+                    do Output.println();
+                }
+
+                // Switch turns if a player rolls a 0
+                if (player1Turn & (player1Score = 0)) {
+                    let player1Turn = false;
+                } else {
+                    if (~(player1Turn) & (player2Score = 0)) {
+                        let player1Turn = true;
+                    }
+                }
+
+                // Check if the game has ended
+                if (player1Score = 20) {
+                    let gameOver = true;
+                } else {
+                    if (player2Score = 20) {
+                        let gameOver = true;
+                    }
+                }
+            }
+
+            // Hold
+            if (command = 72) { // 'h' for hold
+                // Switch turns
+                let player1Turn = ~player1Turn;
+            }
+        }
+
+        // Determine and announce the winner
+        if (player1Score = 20) {
+            do Output.printString("Player 1 wins with a score of 20!");
+            do Output.println();
+        } else {
+            do Output.printString("Player 2 wins with a score of 20!");
+            do Output.println();
+        }
+
+        // Clear memory and exit the program
+        do player1.dispose();
+        do player2.dispose();
+        do random.dispose();
+        do Output.println();
+        do Output.printString("Game over. Exiting...");
+        do Output.println();
+        return;
+    }
+}
