@@ -1,5 +1,10 @@
 # 🎲 Pig Dice Game using Jack and VM
 
+![Language: Jack](https://img.shields.io/badge/Language-Jack-blueviolet)
+![Platform: VM Emulator](https://img.shields.io/badge/Platform-VM%20Emulator-brightgreen)
+
+---
+
 Welcome to the Pig Dice Game — a classic turn-based dice game, developed entirely in the **Jack programming language** and executed on a **Virtual Machine (VM)** as part of the *Elements of Computing-II* coursework at Amrita School of Artificial Intelligence.
 
 This project combines **game development principles**, **modular programming**, and **virtual machine execution concepts**, making it an exciting learning resource for programming enthusiasts.
@@ -58,11 +63,12 @@ Implemented in Jack, the game demonstrates:
 ---
 
 ## 🖥️ Technologies Used
-- **Jack Programming Language** (Nand2Tetris)
-- **VM Emulator** (Virtual Machine)
-- **Jack Compiler**
+- **Jack Programming Language** (`.jack` files)
+- **Virtual Machine Language** (`.vm` files)
+- **Nand2Tetris Tools** (Jack Compiler, VM Emulator)
 
 ---
+
 
 ## 📚 References
 - [Nand2Tetris Course](https://www.nand2tetris.org/)
